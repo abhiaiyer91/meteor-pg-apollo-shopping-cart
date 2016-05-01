@@ -3,7 +3,7 @@ export default schema = [`
     title: String,
     description: String,
     price: String,
-    createdDate: String
+    createdAt: String
   }
   type Cart {
     items: [String],

@@ -10,9 +10,9 @@ const resolvers = {
     }
   },
   Cart: {
-    products(cart){
+    items(cart){
       const cartItems = cart.items;
-      return Products.findAll({where: {$in: cartItems}});
+      return Products.findAll({$in: cartItems});
     }
   }
 };
