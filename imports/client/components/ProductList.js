@@ -7,7 +7,14 @@ function ProductItem() {
   return (
     <li className="cd-item">
       <img src={`/assets/images/${image}.jpg`} alt="Item Preview"/>
-      <a href="#0" className="cd-trigger">Quick View</a>
+      <div className="cd-trigger">
+        <p style={{margin: "0px"}}>
+          <a href="#0" className="subtitle">
+            Add To Cart
+          </a>
+        </p>
+
+      </div>
     </li>
   );
 }

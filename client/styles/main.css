@@ -46,8 +46,8 @@ body::after {
 }
 
 a {
-    color: #f82f53;
-    text-decoration: none;
+    color: white;
+    text-decoration: underline;
 }
 
 img {
@@ -107,12 +107,6 @@ header {
     z-index: 4;
 }
 
-@media only screen and (min-width: 1200px) {
-    header {
-        height: 80px;
-    }
-}
-
 #logo {
     padding-top: 5px;
     /* delete this property if you don't want your logo to scale down on mobile devices */
@@ -121,21 +115,6 @@ header {
     -ms-transform: scale(0.8);
     -o-transform: scale(0.8);
     transform: scale(0.8);
-}
-
-@media only screen and (min-width: 1200px) {
-    #logo {
-        padding-top: 20px;
-        position: absolute;
-        /* logo left margin on Dekstop */
-        left: 2.4em;
-        top: 0;
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1);
-    }
 }
 
 #cd-hamburger-menu, #cd-cart-trigger {
@@ -157,32 +136,12 @@ header {
     background: #26292f url("/assets/images/cd-hamburger-menu.svg") no-repeat center center;
 }
 
-@media only screen and (min-width: 1200px) {
-    #cd-hamburger-menu {
-        display: none;
-    }
-}
-
 #cd-cart-trigger {
     right: 0;
 }
 
 #cd-cart-trigger a {
     background: #26292f url("/assets/images/cd-cart.svg") no-repeat center center;
-}
-
-@media only screen and (min-width: 1200px) {
-    #cd-cart-trigger {
-        /* cart right margin on desktop */
-        right: 0;
-    }
-
-    #cd-cart-trigger a {
-        position: relative;
-        width: 100px;
-        border-left: none;
-        background-color: #26292f;
-    }
 }
 
 #main-nav, #cd-cart {
@@ -197,14 +156,6 @@ header {
 @media only screen and (min-width: 768px) {
     #main-nav, #cd-cart {
         width: 400px;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    #main-nav, #cd-cart {
-        width: 30%;
-        /* header height has changed */
-        padding-top: 80px;
     }
 }
 
@@ -232,56 +183,12 @@ header {
     box-shadow: inset 3px 0 #435779;
 }
 
-@media only screen and (min-width: 1200px) {
-    #main-nav {
-        /* reset main nav style */
-        position: absolute;
-        height: auto;
-        width: auto;
-        left: auto;
-        right: 8em;
-        padding-top: 0;
-        top: 0;
-        background: transparent;
-        box-shadow: none;
-        /* header height */
-        line-height: 80px;
-        z-index: 4;
-    }
-
-    #main-nav li {
-        display: inline-block;
-        margin-left: 1em;
-    }
-
-    #main-nav ul a {
-        display: inline-block;
-        height: auto;
-        line-height: 1;
-        padding: 1em 1.4em;
-        border-bottom: none;
-        color: rgba(255, 255, 255, 0.8);
-        border-radius: 0.25em;
-    }
-
-    #main-nav ul a.current {
-        box-shadow: none;
-        background: #435779;
-        color: #FFF;
-    }
-
-    .no-touch #main-nav ul a:hover {
-        background: #435779;
-        color: #FFF;
-    }
-}
-
 .no-js #main-nav {
     position: fixed;
 }
 
 #cd-cart {
-    background: white;
+    background: #d7d7d7;
 }
 
 
@@ -378,20 +285,6 @@ header {
     text-decoration: underline;
 }
 
-@media only screen and (min-width: 1200px) {
-    #cd-cart > * {
-        padding: 0 2em;
-    }
-
-    #cd-cart .cd-cart-items li {
-        padding: 1em 2em;
-    }
-
-    #cd-cart .cd-item-remove {
-        right: 2em;
-    }
-}
-
 .cd-items {
     padding: 1em 0;
 }
@@ -457,9 +350,9 @@ header {
 }
 
 .cd-trigger {
+    padding: 8px 0;
     position: absolute;
-    height: 50px;
-    line-height: 50px;
+    height: auto;
     width: 100%;
     bottom: 0;
     left: 0;
