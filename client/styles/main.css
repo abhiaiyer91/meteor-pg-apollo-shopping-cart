@@ -212,6 +212,7 @@ header {
     position: relative;
     padding: 1em;
     border-top: 1px solid #e0e6ef;
+    font-size: 14px;
 }
 
 #cd-cart .cd-cart-items li:last-child {
@@ -239,7 +240,7 @@ header {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: url("../img/cd-remove-item.svg") no-repeat center center;
+    background: url("/assets/images/cd-remove-item.svg") no-repeat center center;
 }
 
 .no-touch #cd-cart .cd-item-remove:hover {
