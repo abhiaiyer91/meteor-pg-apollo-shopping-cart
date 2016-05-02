@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-apollo';
-
+import dispatchCartMutation from '/imports/client/actions/cartMutation';
 /**
  * create a mutation object
  * @param productId
@@ -22,14 +22,6 @@ function generateMutationObject(productId, cartId) {
   };
 }
 
-function dispatchAddToCart(cartId, productId, mutation, refetch) {
-  return mutation(`${productId}`, cartId).then(() => {
-    if (refetch) {
-      return refetch();
-    }
-  });
-}
-
 function ProductItem({ id, cartId, mutations }) {
   const images = ['item-1', 'item-2', 'item-3'];
   const image = images[Math.floor(Math.random() * images.length)];
@@ -40,7 +32,7 @@ function ProductItem({ id, cartId, mutations }) {
       <div className="cd-trigger">
         <p style={{margin: "0px"}}>
           <a href="#0" className="subtitle" onClick={function () {
-            return dispatchAddToCart(cartId, id, addToCart);
+            return dispatchCartMutation(cartId, id, addToCart);
           }}>
             Add To Cart
           </a>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-apollo';
-
+import dispatchCartMutation from '/imports/client/actions/cartMutation';
 function findQuantityForProduct(productQuantity, itemId) {
   return _.find(productQuantity, (item) => {
     return itemId === item.id;
@@ -25,14 +25,6 @@ function generateMutationObject(productId) {
       productId
     }
   };
-}
-
-function dispatchRemoveFromCart(productId, mutation, refetch) {
-  return mutation(`${productId}`).then(() => {
-    if (refetch) {
-      return refetch();
-    }
-  });
 }
 
 class CartList extends React.Component {
@@ -67,7 +59,7 @@ class CartList extends React.Component {
                 <div className="cd-price">${price}.00</div>
                 <a href="#0"
                    onClick={function () {
-                return dispatchRemoveFromCart(id, removeFromCart, cartData && cartData.refetch);
+                return dispatchCartMutation(id, removeFromCart, cartData && cartData.refetch);
                 }}
                    className="cd-item-remove cd-img-replace">Remove</a>
               </li>

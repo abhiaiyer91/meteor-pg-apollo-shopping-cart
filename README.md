@@ -11,7 +11,7 @@
 4. Modify the username in the [pg-connector](https://github.com/abhiaiyer91/meteor-pg-apollo-shopping-cart/blob/master/imports/data/pg-connector.js#L5)
 
 ```
-CREATE DATABASE shopping;
+CREATE DATABASE shoppingdb;
 \c shopping
 
 ```
