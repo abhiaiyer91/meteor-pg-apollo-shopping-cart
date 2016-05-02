@@ -52,8 +52,6 @@ class CartMenu extends React.Component {
             <div className="cd-cart-total">
               <p>Total <span>$39.96</span></p>
             </div>
-
-            <a href="#0" className="checkout-btn">Checkout</a>
           </div>
         </Menu>
       </div>
