@@ -32,7 +32,7 @@ function ProductItem({ id, cartId, mutations }) {
       <div className="cd-trigger">
         <p style={{margin: "0px"}}>
           <a href="#0" className="subtitle" onClick={function () {
-            return dispatchCartMutation(cartId, id, addToCart);
+            return dispatchCartMutation(id, addToCart);
           }}>
             Add To Cart
           </a>
