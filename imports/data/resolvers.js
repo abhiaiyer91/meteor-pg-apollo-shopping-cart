@@ -1,5 +1,4 @@
 import { Cart, CartModel, Products } from '/imports/data/pg-connector';
-const _ = require('underscore');
 
 const resolvers = {
   Query: {
@@ -11,6 +10,20 @@ const resolvers = {
     }
   },
   Mutation: {
+    async removeFromCart(root, { productId }) {
+      return Cart.find({where: {id: "1"}}).then((data) => {
+        const dataValueItem = data && data.dataValues && data.dataValues.items;
+        const update = _.reject(dataValueItem, (item, index) => {
+          const productIdIndex = _.findIndex(dataValueItem, (item) => {
+            return item === productId;
+          });
+          return index === productIdIndex;
+        });
+        return CartModel.update({
+          items: update
+        }, {where: {id: "1"}});
+      });
+    },
     async addToCart(_, { productId}) {
       return Cart.findOrCreate({
           defaults: {

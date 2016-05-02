@@ -7,12 +7,41 @@ function findQuantityForProduct(productQuantity, itemId) {
   }).quantity;
 }
 
+/**
+ * create a mutation object
+ * @param productId
+ * @param cartId
+ * @returns {{mutation: *, variables: {id: *}}}
+ */
+function generateMutationObject(productId) {
+  return {
+    mutation: `
+    mutation removeProductFromCart($productId: String) {
+     removeFromCart(productId: $productId) {
+      items
+     }
+    }`,
+    variables: {
+      productId
+    }
+  };
+}
+
+function dispatchRemoveFromCart(productId, mutation, refetch) {
+  return mutation(`${productId}`).then(() => {
+    if (refetch) {
+      return refetch();
+    }
+  });
+}
+
 class CartList extends React.Component {
   componentWillMount() {
     this.props.cartData.refetch();
   }
+
   render() {
-    const { cartData } = this.props;
+    const { cartData, mutations } = this.props;
     const cart = _.first(cartData && cartData.cart);
     const products = cart && cart.products || [];
     const productQuantity = cart && cart.productQuantity;
@@ -20,6 +49,7 @@ class CartList extends React.Component {
       const quantity = findQuantityForProduct(productQuantity, item.id);
       return item && item.price * quantity;
     });
+    const removeFromCart = mutations.removeFromCart;
     if (cartData && cartData.loading) {
       return (
         <div>Loading</div>
@@ -35,7 +65,11 @@ class CartList extends React.Component {
                 <span className="cd-qty">{quantity}x</span> {title}
                 <p>{description}</p>
                 <div className="cd-price">${price}.00</div>
-                <a href="#0" className="cd-item-remove cd-img-replace">Remove</a>
+                <a href="#0"
+                   onClick={function () {
+                return dispatchRemoveFromCart(id, removeFromCart, cartData && cartData.refetch);
+                }}
+                   className="cd-item-remove cd-img-replace">Remove</a>
               </li>
             );
           })}
@@ -76,4 +110,10 @@ function mapQueriesToProps() {
   };
 }
 
-export default connect({mapQueriesToProps})(CartList)
+function mapMutationsToProps() {
+  return {
+    removeFromCart: generateMutationObject
+  };
+}
+
+export default connect({mapQueriesToProps, mapMutationsToProps})(CartList)

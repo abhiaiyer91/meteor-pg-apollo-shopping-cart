@@ -1,6 +1,7 @@
 export default schema = [`
   type Mutation {
     addToCart(productId: String, cartId: String): Cart
+    removeFromCart(productId: String): Cart
   }
   type Product {
     id: String,

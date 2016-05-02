@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 static-html
 random
 underscore
+mixmax:underscore-updates
