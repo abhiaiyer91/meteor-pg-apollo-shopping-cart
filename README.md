@@ -18,7 +18,6 @@ CREATE DATABASE shoppingdb;
 
 
 
-
 ## Start Meteor
 
 ```js
@@ -29,5 +28,5 @@ meteor
 
 
 ## Contribute
-It'd be cool to see the feature set expand, and cleaned up. Have never used Sequelize professionally,
-so can learn a lot from you people out there.
+It'd be cool to see the feature set expand, and cleaned up. If you want to get involved file issues and
+make prs.
