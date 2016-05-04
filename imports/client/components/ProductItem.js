@@ -9,7 +9,7 @@ import dispatchCartMutation from '/imports/client/actions/cartMutation';
  */
 function generateMutationObject(productId, cartId) {
   return {
-    mutation: `
+    mutation: gql`
     mutation addProductToCart($productId: String, $cartId: String) {
      addToCart(productId: $productId, cartId: $cartId) {
       items

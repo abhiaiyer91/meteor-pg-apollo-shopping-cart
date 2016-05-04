@@ -15,7 +15,7 @@ function findQuantityForProduct(productQuantity, itemId) {
  */
 function generateMutationObject(productId) {
   return {
-    mutation: `
+    mutation: gql`
     mutation removeProductFromCart($productId: String) {
      removeFromCart(productId: $productId) {
       items
@@ -80,7 +80,7 @@ class CartList extends React.Component {
 function mapQueriesToProps() {
   return {
     cartData: {
-      query: `
+      query: gql`
           {
             cart {
              products {

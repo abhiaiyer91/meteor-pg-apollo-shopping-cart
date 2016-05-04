@@ -6,7 +6,7 @@ import ProductItem from '/imports/client/components/ProductItem';
 function mapQueriesToProps() {
   return {
     productData: {
-      query: `
+      query: gql`
           {
             products {
               id
