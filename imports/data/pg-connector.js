@@ -1,10 +1,11 @@
 import Sequelize from 'sequelize';
 import casual from 'casual';
 import Random from 'meteor/meteor';
+import { username, password, database }  from '/imports/data/config';
 
-export const db = new Sequelize('shoppingdb', 'abhiaiyer', null, {
+export const db = new Sequelize('shoppingdb', username, password, {
   host: 'localhost',
-  dialect: 'postgres'
+  dialect: database
 });
 
 const ProductModel = db.define('products', {
