@@ -12,7 +12,7 @@
 
 ```
 CREATE DATABASE shoppingdb;
-\c shopping
+\c shoppingdb
 
 ```
 
